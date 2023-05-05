@@ -3,7 +3,7 @@ package WeatherStationObserverPattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherStation {
+public class WeatherStation implements NotifierBase {
 
 
     private List<DisplayObserver> displayObserverList = new ArrayList<>();
@@ -27,5 +27,8 @@ public class WeatherStation {
         for(DisplayObserver displayObserver:displayObserverList){
             displayObserver.update();
         }
+    }
+    public void update(){
+        System.out.println("notified via Weather station");
     }
 }

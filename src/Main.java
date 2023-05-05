@@ -8,6 +8,8 @@ import StrategyPatternAuth.AuthContext;
 import StrategyPatternAuth.AuthStrategy;
 import StrategyPatternAuth.OauthStrategy;
 import StrategyPatternAuth.SamlStrategy;
+import WeatherStationObserverPattern.HighTideStation;
+import WeatherStationObserverPattern.MobleDisplayObserver;
 import WeatherStationObserverPattern.TvDisplayObserver;
 import WeatherStationObserverPattern.WeatherStation;
 
@@ -41,7 +43,12 @@ public class Main {
          WeatherStation weatherStation = new WeatherStation();
          weatherStation.add(new TvDisplayObserver());
 
+         weatherStation.add(new MobleDisplayObserver());
+
          weatherStation.setTemperature(10);
+        HighTideStation highTideStation = new HighTideStation();
+        highTideStation.add(new TvDisplayObserver());
+        highTideStation.setTide(10);
     }
     private static void authStrategyPattern(){
 
