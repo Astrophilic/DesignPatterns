@@ -8,6 +8,8 @@ import StrategyPatternAuth.AuthContext;
 import StrategyPatternAuth.AuthStrategy;
 import StrategyPatternAuth.OauthStrategy;
 import StrategyPatternAuth.SamlStrategy;
+import WeatherStationObserverPattern.TvDisplayObserver;
+import WeatherStationObserverPattern.WeatherStation;
 
 public class Main {
 
@@ -30,8 +32,16 @@ public class Main {
     public static void main(String[] args) {
 
 //        ObserverPatternExample();
-        authStrategyPattern();
+//        authStrategyPattern();
+        weatherObserverPattern();
 
+    }
+
+    private static void weatherObserverPattern(){
+         WeatherStation weatherStation = new WeatherStation();
+         weatherStation.add(new TvDisplayObserver());
+
+         weatherStation.setTemperature(10);
     }
     private static void authStrategyPattern(){
 
