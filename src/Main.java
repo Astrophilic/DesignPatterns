@@ -4,6 +4,10 @@ import StockNotification.SamsungStockNotifier;
 import StockObserver.EmailObserver;
 import StockObserver.IStockObserver;
 import StockObserver.MobileDisplayObserver;
+import StrategyPatternAuth.AuthContext;
+import StrategyPatternAuth.AuthStrategy;
+import StrategyPatternAuth.OauthStrategy;
+import StrategyPatternAuth.SamlStrategy;
 
 public class Main {
 
@@ -25,8 +29,20 @@ public class Main {
     }
     public static void main(String[] args) {
 
-        ObserverPatternExample();
+//        ObserverPatternExample();
+        authStrategyPattern();
 
+    }
+    private static void authStrategyPattern(){
+
+        AuthStrategy oauthStrategy = new OauthStrategy("pnkj@hz.com","213213");
+        AuthStrategy samlStrategy = new SamlStrategy("samid","sasmpassword");
+
+        AuthContext authContext = new AuthContext(oauthStrategy);
+        authContext.authenticateUser();
+        authContext.setAuthStrategy(samlStrategy);
+
+        authContext.authenticateUser();
 
     }
 }
