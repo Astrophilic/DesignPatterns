@@ -1,5 +1,9 @@
+import AnotherDecoratedPizzaExample.*;
 import DecoratorPattern.TextFormattingBase;
 import DecoratorPattern.*;
+import PizzaDecoratorExample.BasePizza;
+import PizzaDecoratorExample.CheeseTopping;
+import PizzaDecoratorExample.ClubHouse;
 import StockNotification.IStockNotifierBase;
 import StockNotification.IphoneStockNotifier;
 import StockNotification.SamsungStockNotifier;
@@ -38,8 +42,24 @@ public class Main {
 //        ObserverPatternExample();
 //        authStrategyPattern();
 //        weatherObserverPattern();
-        decoratedTextExample();
+//        decoratedTextExample();
+        AnotherdecoratedPizzaExample();
+//        decoratedPizzaExample();
 
+    }
+
+    private static void AnotherdecoratedPizzaExample() {
+        Pizza plainPizza = new PlainPizza();
+        System.out.println("price of plain pizza is "+plainPizza.getCost());
+
+        Pizza cheesePizza = new Cheese(plainPizza);
+        System.out.println(cheesePizza.getDescription()+" "+cheesePizza.getCost());
+
+        Pizza pepperoniPizza = new Pepperoni(plainPizza);
+        System.out.println(pepperoniPizza.getDescription() + " "+pepperoniPizza.getCost());
+
+        Pizza cheesePepperoniMushroomPizza = new Cheese(new Pepperoni(new Mushrooms(plainPizza)));
+        System.out.println(cheesePepperoniMushroomPizza.getDescription()+ " "+cheesePepperoniMushroomPizza.getCost());
     }
 
     private static void weatherObserverPattern(){
@@ -60,6 +80,12 @@ public class Main {
 //        decoratedText.printFormattedText();
         TextFormattingBase decoratedItalic = new ItalicDecorator(decoratedText);
         System.out.println(decoratedItalic.getText());
+    }
+
+    private static void decoratedPizzaExample(){
+        BasePizza pizza = new ClubHouse();
+        BasePizza newPizza = new CheeseTopping(pizza);
+        System.out.println("clubhouse with cheese topping price is "+newPizza.getCost());
     }
     private static void authStrategyPattern(){
 
