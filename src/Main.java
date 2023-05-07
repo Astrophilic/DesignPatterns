@@ -1,6 +1,8 @@
 import AnotherDecoratedPizzaExample.*;
 import DecoratorPattern.TextFormattingBase;
 import DecoratorPattern.*;
+import FactoryPatternExample.ScriptRunner;
+import FactoryPatternExample.ScriptRunnerService;
 import PizzaDecoratorExample.BasePizza;
 import PizzaDecoratorExample.CheeseTopping;
 import PizzaDecoratorExample.ClubHouse;
@@ -43,9 +45,15 @@ public class Main {
 //        authStrategyPattern();
 //        weatherObserverPattern();
 //        decoratedTextExample();
-        AnotherdecoratedPizzaExample();
+//        AnotherdecoratedPizzaExample();
 //        decoratedPizzaExample();
+        scriptRunnerServiceExample();
 
+    }
+
+    private static void scriptRunnerServiceExample() {
+        ScriptRunnerService scriptRunnerService = new ScriptRunnerService("cpp");
+        scriptRunnerService.executeScript();
     }
 
     private static void AnotherdecoratedPizzaExample() {
