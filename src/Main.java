@@ -1,3 +1,5 @@
+import DecoratorPattern.TextFormattingBase;
+import DecoratorPattern.*;
 import StockNotification.IStockNotifierBase;
 import StockNotification.IphoneStockNotifier;
 import StockNotification.SamsungStockNotifier;
@@ -35,7 +37,8 @@ public class Main {
 
 //        ObserverPatternExample();
 //        authStrategyPattern();
-        weatherObserverPattern();
+//        weatherObserverPattern();
+        decoratedTextExample();
 
     }
 
@@ -49,6 +52,14 @@ public class Main {
         HighTideStation highTideStation = new HighTideStation();
         highTideStation.add(new TvDisplayObserver());
         highTideStation.setTide(10);
+    }
+    private static void decoratedTextExample(){
+        TextFormattingBase textFormattingBase = new NormalText("hello text");
+//        textFormattingBase.printFormattedText();
+        TextFormattingBase decoratedText = new BoldDecorator(textFormattingBase);
+//        decoratedText.printFormattedText();
+        TextFormattingBase decoratedItalic = new ItalicDecorator(decoratedText);
+        System.out.println(decoratedItalic.getText());
     }
     private static void authStrategyPattern(){
 
